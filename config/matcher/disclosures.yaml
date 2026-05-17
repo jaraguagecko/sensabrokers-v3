@@ -1,0 +1,14 @@
+# Textos legales, comisiones y disclaimers
+# IMPORTANTE: Estos textos son vinculantes. Cambios requieren revision de Gabriel.
+
+commission:
+  pct: 0.5            # 0.5% sobre monto del credito
+  disclosure: "Sensabrokers cobra una comision del 0.5% sobre el monto del crédito aprobado, pagadera al cierre. Esta comision es cobrada al banco/financiera, no al cliente."
+
+cac_disclosure: "El Costo Anual Compuesto (CAT) incluye la tasa de interés, comisiones y seguros. El CAT varía según el perfil crediticio, plazo y monto. Consulta las condiciones específicas con el banco."
+
+legal_disclaimer: "Los resultados mostrados son orientativos y no constituyen una oferta de crédito. La aprobación final está sujeta al análisis crediticio del banco o institución financiera. Las tasas y condiciones pueden variar. Sensabrokers actúa como intermediario y no otorga crédito directamente. Información sujeta a cambios sin previo aviso."
+
+hir_casa_disclosure: "HIR Casa es una SOFOM no regulada. Sus productos hipotecarios tienen características diferentes a los bancos tradicionales. Consulta términos y condiciones completos antes de contratar."
+
+informal_income_note: "Si tienes ingresos informales, algunos productos están diseñados específicamente para tu perfil. Podemos ayudarte a documentar tus ingresos correctamente para maximizar tus opciones."
