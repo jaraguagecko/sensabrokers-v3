@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" role="img" aria-label="Sensabrokers">
+  <title>Sensabrokers</title>
+  <!-- Mark: roof + ascending bar (S) -->
+  <g transform="translate(8 8)">
+    <!-- Roof -->
+    <path d="M4 30 L24 8 L44 30" fill="none" stroke="#C9A227" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Ascending bar (mortgage growth) -->
+    <path d="M10 44 L24 30 L38 44" fill="none" stroke="#F5F5F0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Anchor dot -->
+    <circle cx="24" cy="30" r="2.5" fill="#C9A227"/>
+  </g>
+  <!-- Wordmark -->
+  <g transform="translate(68 0)" font-family="Geist, 'Inter', -apple-system, system-ui, sans-serif" font-weight="700" font-size="28" letter-spacing="-0.5">
+    <text x="0" y="40" fill="#C9A227">Sensa</text>
+    <text x="86" y="40" fill="#F5F5F0">brokers</text>
+  </g>
+</svg>

@@ -23,6 +23,21 @@ export const metadata: Metadata = {
     title: "Sensabrokers — Tu broker hipotecario en Yucatán",
     description:
       "Encuentra la mejor hipoteca para tu perfil. Ingresos formales, informales, mixtos. Sin costo hasta el cierre.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sensabrokers — Tu hipoteca, explicada en claro.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sensabrokers — Tu broker hipotecario en Yucatán",
+    description:
+      "Encuentra la mejor hipoteca para tu perfil. Ingresos formales, informales, mixtos. Sin costo hasta el cierre.",
+    images: ["/og-image.png"],
   },
   metadataBase: new URL("https://sensabrokers.com"),
 };

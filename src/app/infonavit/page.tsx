@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Badge, Button, Card, Container, Heading, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Crédito INFONAVIT — Calculadora y requisitos",
@@ -11,6 +11,49 @@ export const metadata: Metadata = {
   },
 };
 
+const features = [
+  {
+    eyebrow: "Paso 1",
+    title: "Calculadora de puntos",
+    body: "Estima tus puntos T100 y el monto orientativo del crédito a partir de tu salario IMSS, antigüedad cotizando y subcuenta.",
+    href: "/infonavit/calculadora",
+    cta: "Calcular mi crédito",
+  },
+  {
+    eyebrow: "Paso 2",
+    title: "Checklist de requisitos",
+    body: "Documentos por categoría —identificación, laboral, propiedad— marcados como obligatorios u opcionales.",
+    href: "/infonavit/requisitos",
+    cta: "Ver checklist",
+  },
+  {
+    eyebrow: "Paso 3",
+    title: "INFONAVIT + banco (Cofinavit)",
+    body: "¿Tu crédito INFONAVIT no alcanza? Combínalo con uno bancario para aumentar el monto y mantener la tasa social.",
+    href: "/hipotecas/matcher",
+    cta: "Explorar opciones",
+  },
+];
+
+const faq = [
+  {
+    q: "¿Cuántos puntos necesito para obtener crédito INFONAVIT?",
+    a: "Con el Modelo T100 (vigente desde 2024), necesitas mínimo 100 puntos. La calculadora te dice cuántos tienes según tu perfil.",
+  },
+  {
+    q: "¿Qué pasa si ya usé mi crédito INFONAVIT?",
+    a: "Si pagaste tu crédito anterior completamente, puedes solicitar un segundo crédito. HIR Casa también acepta perfiles con segundo crédito.",
+  },
+  {
+    q: "¿Puedo combinar INFONAVIT con un crédito bancario?",
+    a: "Sí, el esquema Cofinavit permite sumar tu crédito INFONAVIT con uno bancario para aumentar el monto total. Scotiabank, por ejemplo, acepta este esquema.",
+  },
+  {
+    q: "¿Cuánto tarda el trámite?",
+    a: "Una vez con tus puntos completos y documentos listos, el proceso suele tomar 4–8 semanas. Carolina te guía en cada paso.",
+  },
+];
+
 export default function InfonavitPage() {
   return (
     <>
@@ -20,118 +63,109 @@ export default function InfonavitPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "¿Cuánto crédito da INFONAVIT?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "El monto depende de tu salario, antigüedad cotizando, edad y subcuenta de vivienda. Con nuestra calculadora puedes estimarlo en 2 minutos.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "¿Cuántos puntos necesito para crédito INFONAVIT?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Con el Modelo T100 vigente en 2026, necesitas mínimo 100 puntos para solicitar tu crédito INFONAVIT.",
-                },
-              },
-            ],
+            mainEntity: faq.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
           }),
         }}
       />
 
-      <section className="pt-32 pb-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="badge-gold inline-block mb-4">INFONAVIT · Modelo T100 2026</span>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+      {/* Hero */}
+      <Section spacing="xl" className="pt-32 relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.10), transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(13,27,42,0.6), transparent 70%)",
+          }}
+        />
+        <Container width="lg" className="text-center relative">
+          <Badge>INFONAVIT · Modelo T100 2026</Badge>
+          <Heading as={1} size="4xl" className="mt-6">
             ¿Cuánto crédito{" "}
-            <span style={{ color: "var(--color-brand-gold)" }}>te da INFONAVIT</span>?
-          </h1>
-          <p className="mt-5 text-lg text-gray-400 max-w-2xl mx-auto">
-            Calculadora gratuita basada en el Modelo T100. Ingresa tu salario, antigüedad y datos básicos para estimar tu crédito en 2 minutos.
+            <span className="text-accent">te da INFONAVIT</span>?
+          </Heading>
+          <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
+            Calculadora gratuita basada en el Modelo T100. Ingresa tu salario, antigüedad y datos básicos para estimar tu crédito en menos de 2 minutos.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/infonavit/calculadora" className="btn-gold text-center">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/infonavit/calculadora" size="lg">
               Calcular mi crédito →
-            </Link>
-            <Link href="/infonavit/requisitos" className="btn-outline-gold text-center">
+            </Button>
+            <Button href="/infonavit/requisitos" variant="secondary" size="lg">
               Ver requisitos
-            </Link>
+            </Button>
           </div>
-        </div>
-      </section>
+          <p className="mt-4 text-xs text-text-subtle">
+            Sin registro · Sin costo · Estimación orientativa
+          </p>
+        </Container>
+      </Section>
 
-      {/* Features */}
-      <section className="py-12 px-6">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              icon: "🧮",
-              title: "Calculadora de puntos",
-              body: "Calcula tus puntos T100 y el monto estimado de crédito según tu perfil.",
-              href: "/infonavit/calculadora",
-              cta: "Calcular",
-            },
-            {
-              icon: "📋",
-              title: "Checklist de requisitos",
-              body: "Lista completa de documentos necesarios para tramitar tu crédito INFONAVIT.",
-              href: "/infonavit/requisitos",
-              cta: "Ver checklist",
-            },
-            {
-              icon: "🤝",
-              title: "INFONAVIT + banco",
-              body: "¿Quieres combinar tu crédito INFONAVIT con uno bancario? Te explicamos cómo funciona el Cofinavit.",
-              href: "/hipotecas/matcher",
-              cta: "Explorar opciones",
-            },
-          ].map((f) => (
-            <div key={f.title} className="card-dark p-5 flex flex-col gap-3">
-              <span className="text-2xl">{f.icon}</span>
-              <h3 className="font-semibold">{f.title}</h3>
-              <p className="text-gray-400 text-sm flex-1">{f.body}</p>
-              <Link href={f.href} className="btn-outline-gold text-sm text-center">
-                {f.cta} →
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-12 px-6">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-center">Preguntas frecuentes</h2>
-          <div className="space-y-4">
-            {[
-              {
-                q: "¿Cuántos puntos necesito para obtener crédito INFONAVIT?",
-                a: "Con el Modelo T100 (vigente desde 2024), necesitas mínimo 100 puntos. La calculadora te dice exactamente cuántos tienes según tu perfil.",
-              },
-              {
-                q: "¿Qué pasa si ya usé mi crédito INFONAVIT?",
-                a: "Si pagaste tu crédito anterior completamente, puedes solicitar un segundo crédito. HIR Casa también acepta perfiles con segundo crédito.",
-              },
-              {
-                q: "¿Puedo combinar INFONAVIT con un crédito bancario?",
-                a: "Sí, el esquema Cofinavit permite sumar tu crédito INFONAVIT con uno bancario para aumentar el monto total. Scotiabank, por ejemplo, acepta este esquema.",
-              },
-              {
-                q: "¿Cuánto tarda el trámite?",
-                a: "Una vez con tus puntos completos y documentos listos, el proceso suele tomar 4-8 semanas. Carolina te guía en cada paso.",
-              },
-            ].map((item) => (
-              <div key={item.q} className="card-dark p-5">
-                <h3 className="font-semibold text-sm mb-2">{item.q}</h3>
-                <p className="text-gray-400 text-sm">{item.a}</p>
-              </div>
+      {/* Features / Steps */}
+      <Section spacing="lg">
+        <Container>
+          <div className="text-center mb-12">
+            <Heading as={2} size="2xl">Tu ruta INFONAVIT en 3 pasos</Heading>
+            <p className="text-text-muted mt-3 text-sm">
+              Calcula, prepara documentos y, si conviene, combínalo con un banco.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {features.map((f) => (
+              <Card key={f.title} padding="lg" className="flex flex-col gap-4">
+                <div className="text-accent font-mono text-sm">{f.eyebrow}</div>
+                <Heading as={3} size="md">{f.title}</Heading>
+                <p className="text-text-muted text-sm leading-relaxed flex-1">{f.body}</p>
+                <div className="pt-2">
+                  <Button href={f.href} variant="secondary" size="sm">
+                    {f.cta} →
+                  </Button>
+                </div>
+              </Card>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
+
+      {/* FAQ */}
+      <Section spacing="lg" tone="muted">
+        <Container width="md">
+          <div className="text-center mb-12">
+            <Heading as={2} size="2xl">Preguntas frecuentes</Heading>
+            <p className="text-text-muted mt-3 text-sm">
+              Lo que más nos preguntan sobre el Modelo T100 y el trámite.
+            </p>
+          </div>
+          <div className="space-y-4">
+            {faq.map((item) => (
+              <Card key={item.q} padding="md">
+                <Heading as={3} size="sm" className="mb-2">{item.q}</Heading>
+                <p className="text-text-muted text-sm leading-relaxed">{item.a}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Final CTA */}
+      <Section spacing="xl" className="text-center">
+        <Container width="sm">
+          <Heading as={2} size="2xl" className="mb-4">
+            ¿Listo para saber{" "}
+            <span className="text-accent">cuánto te toca</span>?
+          </Heading>
+          <p className="text-text-muted mb-10 leading-relaxed">
+            Ingresa tu salario IMSS, antigüedad y subcuenta. Te decimos si calificas y un estimado del monto.
+          </p>
+          <Button href="/infonavit/calculadora" size="lg">
+            Calcular mi crédito — gratis →
+          </Button>
+        </Container>
+      </Section>
     </>
   );
 }

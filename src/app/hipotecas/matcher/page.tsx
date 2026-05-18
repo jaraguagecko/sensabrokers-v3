@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MatcherForm from "@/components/matcher/MatcherForm";
+import { Badge, Container, Heading, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Matcher hipotecario — Encuentra tu hipoteca ideal",
@@ -9,17 +10,17 @@ export const metadata: Metadata = {
 
 export default function MatcherPage() {
   return (
-    <section className="pt-28 pb-20 px-6">
-      <div className="max-w-2xl mx-auto">
+    <Section spacing="xl" className="pt-28">
+      <Container width="sm">
         <div className="text-center mb-8">
-          <span className="badge-gold inline-block mb-3">Matcher MVP · 2 minutos</span>
-          <h1 className="text-3xl md:text-4xl font-bold">Tu hipoteca ideal</h1>
+          <Badge className="mb-3">Matcher MVP · 2 minutos</Badge>
+          <Heading as={1} size="2xl">Tu hipoteca ideal</Heading>
           <p className="text-gray-400 mt-3 text-sm">
             Sin registro · Sin costo · Sin compromiso
           </p>
         </div>
         <MatcherForm />
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
