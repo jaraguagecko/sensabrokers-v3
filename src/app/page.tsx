@@ -12,8 +12,6 @@ type Service = {
   description: string;
   cta: string;
   href: string;
-  badge: string;
-  available: boolean;
 };
 
 const services: Service[] = [
@@ -23,8 +21,6 @@ const services: Service[] = [
       "Comparamos 8+ bancos y SOFOM para encontrar la tasa más baja para tu perfil. Ingresos formales, informales o mixtos bienvenidos.",
     cta: "Usar el Matcher",
     href: "/hipotecas/matcher",
-    badge: "Disponible",
-    available: true,
   },
   {
     title: "Crédito INFONAVIT",
@@ -32,26 +28,6 @@ const services: Service[] = [
       "Calcula cuánto crédito te da el instituto según tus puntos, salario y antigüedad. Checklist y guía de requisitos incluidos.",
     cta: "Calcular mi crédito",
     href: "/infonavit/calculadora",
-    badge: "Disponible",
-    available: true,
-  },
-  {
-    title: "Inversiones inmobiliarias",
-    description:
-      "Preventas y oportunidades de inversión en Yucatán con análisis de ROI proyectado y financiamiento integrado.",
-    cta: "Próximamente",
-    href: "#fase2",
-    badge: "Fase 2",
-    available: false,
-  },
-  {
-    title: "IA inmobiliaria",
-    description:
-      "Asistente de valuación, análisis de colonias y matching de propiedades impulsado por inteligencia artificial.",
-    cta: "En desarrollo",
-    href: "#fase3",
-    badge: "Fase 3",
-    available: false,
   },
 ];
 
@@ -163,24 +139,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((s, i) => (
               <ScrollReveal key={s.title} delay={i * 80}>
-                <Card
-                  padding="lg"
-                  interactive={s.available}
-                  className={`flex flex-col gap-5 h-full ${s.available ? "" : "opacity-60"}`}
-                >
+                <Card padding="lg" interactive className="flex flex-col gap-5 h-full">
                   <div className="flex items-start justify-between gap-3">
                     <Heading as={3} size="md">{s.title}</Heading>
-                    <Badge variant={s.available ? "gold" : "neutral"} size="sm">{s.badge}</Badge>
+                    <Badge variant="gold" size="sm">Disponible</Badge>
                   </div>
                   <p className="text-text-muted text-sm leading-relaxed">{s.description}</p>
                   <div className="mt-auto pt-2">
-                    {s.available ? (
-                      <Button href={s.href} variant="secondary" size="sm">
-                        {s.cta} →
-                      </Button>
-                    ) : (
-                      <span className="text-text-subtle text-sm font-medium">{s.cta}</span>
-                    )}
+                    <Button href={s.href} variant="secondary" size="sm">
+                      {s.cta} →
+                    </Button>
                   </div>
                 </Card>
               </ScrollReveal>
