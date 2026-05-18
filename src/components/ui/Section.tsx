@@ -22,7 +22,7 @@ export default function Section({
   children,
   ...rest
 }: SectionProps) {
-  const tones = tone === "muted" ? "bg-[#050d1a]" : "";
+  const tones = tone === "muted" ? "bg-[var(--surface-2)]" : "";
   return (
     <section className={["px-6", spacings[spacing], tones, className ?? ""].filter(Boolean).join(" ")} {...rest}>
       {children}

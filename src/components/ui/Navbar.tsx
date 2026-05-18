@@ -27,7 +27,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center" aria-label="Sensabrokers — Inicio">
           <Image
-            src="/brand/logo-dark.svg"
+            src="/brand/logo-light.svg"
             alt="Sensabrokers"
             width={180}
             height={36}

@@ -22,7 +22,7 @@ export default function Footer() {
           <div>
             <Link href="/" aria-label="Sensabrokers — Inicio" className="inline-block">
               <Image
-                src="/brand/logo-dark.svg"
+                src="/brand/logo-light.svg"
                 alt="Sensabrokers"
                 width={180}
                 height={36}
@@ -30,7 +30,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm text-text-muted leading-relaxed">
-              Broker hipotecario independiente en Yucatán. Comisión del 0.5% sobre el crédito aprobado, pagadera al cierre.
+              Te acompañamos a encontrar tu casa en Yucatán. Somos un broker hipotecario independiente — y no cobramos hasta que firmas las llaves.
             </p>
           </div>
 
