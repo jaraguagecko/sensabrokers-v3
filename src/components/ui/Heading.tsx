@@ -38,7 +38,7 @@ export default function Heading({
 }: HeadingProps) {
   const Tag = `h${as}` as const;
   const cls = [
-    "font-bold tracking-[var(--tracking-tight)] leading-[var(--leading-tight)] text-[var(--text-primary)]",
+    "font-bold leading-[var(--leading-tight)] text-[var(--text-primary)] sb-heading",
     sizes[size ?? defaultSize[as]],
     className ?? "",
   ]

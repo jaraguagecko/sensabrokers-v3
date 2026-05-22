@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { MatcherInput, ProductResult, Proposito } from "@/lib/matcher";
 import MatcherResults from "./MatcherResults";
 import { Button, Card, Input } from "@/components/ui";
+import { track, FunnelEvent } from "@/lib/analytics";
 
 type Step = 1 | 2 | 3 | 4 | 5;
 
@@ -134,6 +135,7 @@ function findLabel<T extends { value: V; label: string }, V>(
 
 export default function MatcherForm() {
   const [step, setStep] = useState<Step>(1);
+  const [started, setStarted] = useState(false);
   const [input, setInput] = useState<Partial<MatcherInput>>(defaultInput);
   const [results, setResults] = useState<ProductResult[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -159,9 +161,11 @@ export default function MatcherForm() {
       const data = await res.json();
       if (data.results && data.results.length > 0) {
         setResults(data.results);
+        track(FunnelEvent.MatcherCompleted, { result_count: data.results.length });
       } else {
         setNoResults(true);
         setResults([]);
+        track(FunnelEvent.MatcherCompleted, { result_count: 0 });
       }
     } catch {
       setNoResults(true);
@@ -173,10 +177,13 @@ export default function MatcherForm() {
 
   function goTo(target: Step) {
     if (target === step) return;
-    // Allow forward only if intermediate steps are valid; backward is always free
     if (target < step) {
       setStep(target);
       return;
+    }
+    if (target === 2 && !started) {
+      setStarted(true);
+      track(FunnelEvent.MatcherStarted);
     }
     const canReach2 = step1Valid;
     const canReach3 = canReach2 && step2Valid;

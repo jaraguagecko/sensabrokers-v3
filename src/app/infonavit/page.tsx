@@ -2,55 +2,55 @@ import type { Metadata } from "next";
 import { Badge, Button, Card, Container, Heading, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Crédito INFONAVIT — Calculadora y requisitos",
+  title: "Crédito INFONAVIT — Te ayudamos a entenderlo",
   description:
-    "Calcula cuánto crédito INFONAVIT te corresponde según tus puntos, salario y antigüedad. Checklist de requisitos y guía gratuita para derechohabientes en Yucatán.",
+    "Te explicamos en claro cuánto crédito INFONAVIT te corresponde según tus puntos, salario y antigüedad. Sin tecnicismos, con un asesor humano.",
   openGraph: {
-    title: "Calculadora INFONAVIT | Sensabrokers Yucatán",
-    description: "Descubre cuánto crédito INFONAVIT te dan en 2 minutos. Gratis, sin registro.",
+    title: "INFONAVIT con asesor humano | Sensabrokers Yucatán",
+    description: "Calculamos juntos cuánto te da INFONAVIT. Gratis, sin registro, con explicación humana.",
   },
 };
 
 const features = [
   {
-    eyebrow: "Paso 1",
-    title: "Calculadora de puntos",
-    body: "Estima tus puntos T100 y el monto orientativo del crédito a partir de tu salario IMSS, antigüedad cotizando y subcuenta.",
+    eyebrow: "Primero",
+    title: "Calculamos juntos tus puntos",
+    body: "Te decimos cuántos puntos T100 tienes y, en palabras de uso diario, cuánto te puede prestar el instituto. Sin que tengas que descifrar la página oficial.",
     href: "/infonavit/calculadora",
-    cta: "Calcular mi crédito",
+    cta: "Empezar contigo",
   },
   {
-    eyebrow: "Paso 2",
-    title: "Checklist de requisitos",
-    body: "Documentos por categoría —identificación, laboral, propiedad— marcados como obligatorios u opcionales.",
+    eyebrow: "Después",
+    title: "Te decimos qué papeles necesitas",
+    body: "Una lista clara, dividida en lo que es obligatorio y lo que conviene tener a la mano. Si te falta uno, te decimos dónde lo consigues.",
     href: "/infonavit/requisitos",
-    cta: "Ver checklist",
+    cta: "Ver la lista",
   },
   {
-    eyebrow: "Paso 3",
+    eyebrow: "Si conviene",
     title: "INFONAVIT + banco (Cofinavit)",
-    body: "¿Tu crédito INFONAVIT no alcanza? Combínalo con uno bancario para aumentar el monto y mantener la tasa social.",
+    body: "Si lo que te da el instituto no alcanza para tu casa, te explicamos cómo sumarle un crédito de banco — sin perder la tasa social.",
     href: "/hipotecas/matcher",
-    cta: "Explorar opciones",
+    cta: "Explorar contigo",
   },
 ];
 
 const faq = [
   {
-    q: "¿Cuántos puntos necesito para obtener crédito INFONAVIT?",
-    a: "Con el Modelo T100 (vigente desde 2024), necesitas mínimo 100 puntos. La calculadora te dice cuántos tienes según tu perfil.",
+    q: "¿Cuántos puntos necesito para que me den crédito?",
+    a: "Con el Modelo T100 (vigente desde 2024) necesitas mínimo 100 puntos. Si quieres, te ayudamos a calcularlos en dos minutos — sin entrar a la página oficial.",
   },
   {
-    q: "¿Qué pasa si ya usé mi crédito INFONAVIT?",
-    a: "Si pagaste tu crédito anterior completamente, puedes solicitar un segundo crédito. HIR Casa también acepta perfiles con segundo crédito.",
+    q: "Ya usé mi crédito antes. ¿Me dan otro?",
+    a: "Sí, si ya pagaste el primero por completo. Te explicamos qué opciones de segundo crédito hay (incluido HIR Casa) y cuál te conviene más.",
   },
   {
-    q: "¿Puedo combinar INFONAVIT con un crédito bancario?",
-    a: "Sí, el esquema Cofinavit permite sumar tu crédito INFONAVIT con uno bancario para aumentar el monto total. Scotiabank, por ejemplo, acepta este esquema.",
+    q: "¿Puedo juntar INFONAVIT con un banco?",
+    a: "Sí. Se llama Cofinavit y suma tu crédito INFONAVIT con uno bancario para llegar al monto que necesitas — manteniendo la tasa social. Te lo explicamos sin tecnicismos.",
   },
   {
-    q: "¿Cuánto tarda el trámite?",
-    a: "Una vez con tus puntos completos y documentos listos, el proceso suele tomar 4–8 semanas. Carolina te guía en cada paso.",
+    q: "¿Cuánto tarda todo el trámite?",
+    a: "Con los puntos listos y los papeles a la mano, suele tomar 4 a 8 semanas. Daniela te avisa por WhatsApp en cada paso para que no te quedes esperando sin saber qué pasa.",
   },
 ];
 
@@ -74,33 +74,28 @@ export default function InfonavitPage() {
 
       {/* Hero */}
       <Section spacing="xl" className="pt-32 relative overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.10), transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(13,27,42,0.6), transparent 70%)",
-          }}
-        />
+        <div aria-hidden="true" className="absolute inset-0 warm-paper-bg opacity-50 pointer-events-none" />
         <Container width="lg" className="text-center relative">
           <Badge>INFONAVIT · Modelo T100 2026</Badge>
-          <Heading as={1} size="4xl" className="mt-6">
-            ¿Cuánto crédito{" "}
-            <span className="text-accent">te da INFONAVIT</span>?
+          <Heading as={1} size="4xl" className="mt-6 font-display">
+            ¿Cuánto te ayuda{" "}
+            <span className="warm-underline">INFONAVIT</span>?
           </Heading>
           <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
-            Calculadora gratuita basada en el Modelo T100. Ingresa tu salario, antigüedad y datos básicos para estimar tu crédito en menos de 2 minutos.
+            Te explicamos en claro, con tus números reales, cuánto te puede
+            prestar el instituto. Sin descifrar la página oficial, sin tecnicismos
+            — y con una persona dispuesta a contestarte si tienes dudas.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="/infonavit/calculadora" size="lg">
-              Calcular mi crédito →
+              Calcular contigo →
             </Button>
             <Button href="/infonavit/requisitos" variant="secondary" size="lg">
-              Ver requisitos
+              Ver qué necesito
             </Button>
           </div>
           <p className="mt-4 text-xs text-text-subtle">
-            Sin registro · Sin costo · Estimación orientativa
+            Sin registro · Sin costo · Te respondemos hoy mismo
           </p>
         </Container>
       </Section>
@@ -109,16 +104,16 @@ export default function InfonavitPage() {
       <Section spacing="lg">
         <Container>
           <div className="text-center mb-12">
-            <Heading as={2} size="2xl">Tu ruta INFONAVIT en 3 pasos</Heading>
+            <Heading as={2} size="2xl" className="font-display">Te acompañamos en 3 pasos</Heading>
             <p className="text-text-muted mt-3 text-sm">
-              Calcula, prepara documentos y, si conviene, combínalo con un banco.
+              Calculamos contigo, juntamos los papeles, y si hace falta lo sumamos a un banco.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((f) => (
               <Card key={f.title} padding="lg" className="flex flex-col gap-4">
                 <div className="text-accent font-mono text-sm">{f.eyebrow}</div>
-                <Heading as={3} size="md">{f.title}</Heading>
+                <Heading as={3} size="md" className="font-display">{f.title}</Heading>
                 <p className="text-text-muted text-sm leading-relaxed flex-1">{f.body}</p>
                 <div className="pt-2">
                   <Button href={f.href} variant="secondary" size="sm">
@@ -135,15 +130,15 @@ export default function InfonavitPage() {
       <Section spacing="lg" tone="muted">
         <Container width="md">
           <div className="text-center mb-12">
-            <Heading as={2} size="2xl">Preguntas frecuentes</Heading>
+            <Heading as={2} size="2xl" className="font-display">Lo que más nos preguntan</Heading>
             <p className="text-text-muted mt-3 text-sm">
-              Lo que más nos preguntan sobre el Modelo T100 y el trámite.
+              Dudas reales de personas reales, contestadas en español de uso diario.
             </p>
           </div>
           <div className="space-y-4">
             {faq.map((item) => (
               <Card key={item.q} padding="md">
-                <Heading as={3} size="sm" className="mb-2">{item.q}</Heading>
+                <Heading as={3} size="sm" className="mb-2 font-display">{item.q}</Heading>
                 <p className="text-text-muted text-sm leading-relaxed">{item.a}</p>
               </Card>
             ))}
@@ -154,15 +149,15 @@ export default function InfonavitPage() {
       {/* Final CTA */}
       <Section spacing="xl" className="text-center">
         <Container width="sm">
-          <Heading as={2} size="2xl" className="mb-4">
-            ¿Listo para saber{" "}
-            <span className="text-accent">cuánto te toca</span>?
+          <Heading as={2} size="2xl" className="mb-4 font-display">
+            ¿Vemos juntos{" "}
+            <span className="warm-underline">cuánto te toca</span>?
           </Heading>
           <p className="text-text-muted mb-10 leading-relaxed">
-            Ingresa tu salario IMSS, antigüedad y subcuenta. Te decimos si calificas y un estimado del monto.
+            Cuéntanos tu salario IMSS, tu antigüedad y lo que tienes en la subcuenta. En dos minutos te decimos si calificas y cuánto te pueden prestar.
           </p>
           <Button href="/infonavit/calculadora" size="lg">
-            Calcular mi crédito — gratis →
+            Calcular contigo — es gratis
           </Button>
         </Container>
       </Section>

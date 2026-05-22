@@ -8,6 +8,7 @@ import {
   type AntiguedadRange,
 } from "../../../config/infonavit-rules.config";
 import { Badge, Button, Card, Input } from "@/components/ui";
+import { track, FunnelEvent } from "@/lib/analytics";
 
 interface FormData {
   salario: number;
@@ -95,11 +96,12 @@ export default function InfonavitCalculadora() {
 
     const plazo = plazoMaximoPorEdad(form.edad);
 
-    setResult({
-      puntos,
-      monto,
-      plazo,
-      califica: puntos >= INFONAVIT_CONFIG.puntos_minimos,
+    const r = { puntos, monto, plazo, califica: puntos >= INFONAVIT_CONFIG.puntos_minimos };
+    setResult(r);
+    track(FunnelEvent.CalculadoraCompleted, {
+      puntos_estimados: puntos,
+      modalidad: form.modalidad ?? "infonavit",
+      califica: r.califica,
     });
   }
 
@@ -223,7 +225,7 @@ export default function InfonavitCalculadora() {
               : "Carolina puede orientarte sobre cómo acumular puntos más rápido o combinar INFONAVIT con un banco."}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button href="https://calendly.com/sensabrokers/consulta" external>
+            <Button href="https://calendly.com/sensabrokers/consulta" external onClick={() => track(FunnelEvent.CalendlyClicked, { source: "calculadora" })}>
               Agendar consulta gratis →
             </Button>
             <Button onClick={reset} variant="secondary">

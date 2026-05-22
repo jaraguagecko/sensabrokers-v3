@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { Badge, Button, Card, Container, Heading, Section } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Hipotecas bancarias en Yucatán",
+  title: "Hipotecas con bancos — Te ayudamos a comparar",
   description:
-    "Compara hipotecas de Banorte, Scotiabank, Santander, HSBC, Citibanamex, HIR Casa y más. El matcher encuentra tu mejor opción según tu perfil en 2 minutos.",
+    "Comparamos contigo hipotecas de Banorte, Scotiabank, Santander, HSBC, Citibanamex, HIR Casa y más. Sin tecnicismos, con un asesor humano de tu lado.",
   openGraph: {
-    title: "Hipotecas bancarias en Yucatán | Sensabrokers",
-    description: "Matcher hipotecario gratuito. Compara 8+ instituciones para tu perfil.",
+    title: "Hipotecas con bancos en Yucatán | Sensabrokers",
+    description: "Te acompañamos a comparar 8+ instituciones, en palabras claras y con asesor humano.",
   },
 };
 
@@ -115,25 +115,26 @@ export default function HipotecasPage() {
       />
 
       {/* Hero */}
-      <Section spacing="lg" className="pt-32">
-        <Container width="lg" className="text-center">
-          <Badge className="mb-4">Hipotecas bancarias · 8+ instituciones</Badge>
-          <Heading as={1} size="3xl" className="mt-2">
-            Encuentra tu{" "}
-            <span style={{ color: "var(--accent)" }}>mejor hipoteca</span>
+      <Section spacing="lg" className="pt-32 relative overflow-hidden">
+        <div aria-hidden="true" className="absolute inset-0 warm-paper-bg opacity-50 pointer-events-none" />
+        <Container width="lg" className="text-center relative">
+          <Badge className="mb-4">Hipotecas con bancos · 8+ instituciones</Badge>
+          <Heading as={1} size="3xl" className="mt-2 font-display">
+            Te ayudamos a encontrar{" "}
+            <span className="warm-underline">la hipoteca que sí te conviene</span>
           </Heading>
-          <p className="mt-5 text-lg text-[var(--text-muted)] max-w-2xl mx-auto">
-            Compara tasa, plazo y requisitos reales — el matcher filtra las opciones
-            viables para tu perfil en 2 minutos.
+          <p className="mt-5 text-lg text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed">
+            Comparamos tasa, plazo y requisitos reales contigo — sin que tengas
+            que descifrar la letra chiquita. Tú decides, nosotros explicamos.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/hipotecas/matcher">Usar el Matcher gratis →</Button>
+            <Button href="/hipotecas/matcher">Probar el matcher →</Button>
             <Button
-              href="https://calendly.com/sensabrokers/consulta"
+              href="https://wa.me/529999999999"
               external
               variant="secondary"
             >
-              Hablar con Carolina
+              Hablar con Daniela
             </Button>
           </div>
         </Container>
@@ -144,13 +145,13 @@ export default function HipotecasPage() {
         <Container width="lg">
           <div className="flex flex-wrap items-end justify-between gap-3 mb-5">
             <div>
-              <Heading as={2} size="lg" className="mb-1">Opciones disponibles</Heading>
+              <Heading as={2} size="lg" className="mb-1 font-display">Lo que hay en la mesa</Heading>
               <p className="text-[var(--text-subtle)] text-sm">
-                Tasas y requisitos orientativos · validados con Creditaria 2026-05-16
+                Tasas y requisitos orientativos · revisados con Creditaria, 2026-05-16
               </p>
             </div>
             <Button href="/hipotecas/matcher" variant="secondary" size="sm">
-              Filtrar por mi perfil →
+              Filtrar para mi caso →
             </Button>
           </div>
 
@@ -249,12 +250,13 @@ export default function HipotecasPage() {
       <Section spacing="lg" className="text-center">
         <Container width="sm">
           <Card padding="lg">
-            <Heading as={2} size="xl" className="mb-3">¿Cuál es la mejor para ti?</Heading>
-            <p className="text-[var(--text-muted)] mb-6 text-sm">
-              El matcher analiza tu ingreso, monto, enganche y propósito para mostrarte
-              únicamente las opciones viables — sin sesgos.
+            <Heading as={2} size="xl" className="mb-3 font-display">¿Y cuál es la tuya?</Heading>
+            <p className="text-[var(--text-muted)] mb-6 text-sm leading-relaxed">
+              Cuéntanos tu ingreso, el monto que necesitas y cuánto tienes para el
+              enganche. Te decimos qué opciones son reales para ti — y cuáles vale
+              la pena dejar pasar.
             </p>
-            <Button href="/hipotecas/matcher">Iniciar matcher → 2 min</Button>
+            <Button href="/hipotecas/matcher">Empezar contigo · 2 min</Button>
           </Card>
         </Container>
       </Section>

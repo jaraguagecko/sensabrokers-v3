@@ -122,6 +122,118 @@
   --color-brand-gray: var(--brand-gray);
 }
 
+/* =========================================================================
+   v3.2-warm — paleta cálida, tradicional, cercana
+   Activado con <html data-theme="warm">. Sobrescribe los tokens semánticos
+   sin tocar las primitivas de marca: convive con v3.1.
+   ========================================================================= */
+:root[data-theme="warm"] {
+  /* Repaint brand primitives toward warm tones so existing Button/Card variants
+     pick up the warm palette without code changes. */
+  --brand-gold:       #b8593a;   /* terracotta acts as the "accent" primitive */
+  --brand-gold-light: #d97a59;
+  --brand-gold-dark:  #8f3f25;
+  --brand-navy:       #2b3f56;
+  --brand-navy-700:   #1f2f42;
+  --brand-navy-500:   #2b3f56;
+  --brand-navy-300:   #50637c;
+  --brand-ink:        #2a2118;
+  --brand-bone:       #f7f1e6;
+  --brand-gray:       #8a7a64;
+
+  /* Warm palette primitives */
+  --warm-cream:        #f7f1e6;   /* page background */
+  --warm-cream-soft:   #fdf8ef;   /* raised cards */
+  --warm-paper:        #efe6d4;   /* sections, muted bands */
+  --warm-paper-deep:   #e6dac1;   /* hover, dividers */
+  --warm-terracotta:   #b8593a;   /* accent / CTA */
+  --warm-terracotta-light: #d97a59;
+  --warm-terracotta-dark:  #8f3f25;
+  --warm-navy-soft:    #2b3f56;   /* headlines, links — softer than v3.1 navy */
+  --warm-navy-deep:    #1f2f42;
+  --warm-gold-mate:    #b08a3a;   /* dorado mate, no brillante */
+  --warm-ink:          #2a2118;   /* sepia-ink for body text */
+  --warm-ink-soft:     #574a3c;
+  --warm-ink-subtle:   #8a7a64;
+
+  /* Semantic overrides */
+  --surface-0: var(--warm-cream);
+  --surface-1: var(--warm-cream-soft);
+  --surface-2: var(--warm-paper);
+  --surface-3: var(--warm-paper-deep);
+
+  --text-primary: var(--warm-navy-deep);
+  --text-muted:   var(--warm-ink-soft);
+  --text-subtle:  var(--warm-ink-subtle);
+  --text-onbrand: #fdf8ef;
+
+  --border-subtle: #e0d3b8;
+  --border-strong: #c9b88f;
+  --border-focus:  var(--warm-terracotta);
+
+  --accent:         var(--warm-terracotta);
+  --accent-hover:   var(--warm-terracotta-light);
+  --accent-pressed: var(--warm-terracotta-dark);
+
+  --shadow-sm: 0 1px 2px rgba(87, 74, 60, 0.08);
+  --shadow-md: 0 6px 18px rgba(87, 74, 60, 0.10);
+  --shadow-lg: 0 16px 40px rgba(87, 74, 60, 0.14);
+  --shadow-gold: 0 6px 24px rgba(184, 89, 58, 0.28);
+
+  /* Serif for display/headings — usar con clase .font-serif o utilidad font-serif */
+  --font-display: var(--font-serif, "Fraunces", "Source Serif Pro", Georgia, "Times New Roman", serif);
+
+  --background: var(--surface-0);
+  --foreground: var(--text-primary);
+}
+
+/* Warm theme — paper texture overlay & serif headings */
+:root[data-theme="warm"] body {
+  background-color: var(--surface-0);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(184, 89, 58, 0.04), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(176, 138, 58, 0.05), transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+}
+
+:root[data-theme="warm"] h1,
+:root[data-theme="warm"] h2,
+:root[data-theme="warm"] h3,
+:root[data-theme="warm"] .font-display {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.015em;
+}
+
+:root[data-theme="warm"] h1,
+:root[data-theme="warm"] h2 {
+  font-weight: var(--weight-bold);
+}
+
+:root[data-theme="warm"] ::selection {
+  background: var(--warm-terracotta);
+  color: #fdf8ef;
+}
+
+/* Paper-grain texture utility for hero / sections */
+.warm-paper-bg {
+  background-color: var(--surface-2);
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0)),
+    repeating-linear-gradient(0deg, rgba(87, 74, 60, 0.025) 0px, rgba(87, 74, 60, 0.025) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(87, 74, 60, 0.02) 0px, rgba(87, 74, 60, 0.02) 1px, transparent 1px, transparent 4px);
+}
+
+/* Underline accent for serif emphasis (e.g., "tu casa") */
+.warm-underline {
+  background-image: linear-gradient(120deg, var(--warm-terracotta) 0%, var(--warm-terracotta-light) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.28em;
+  background-position: 0 88%;
+  padding: 0 0.05em;
+}
+
 /* ---- LIGHT mode overrides — applied via class or prefers-color-scheme ---- */
 :root[data-theme="light"],
 :root.light {
@@ -188,6 +300,7 @@
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-serif: var(--font-display, var(--font-serif));
 
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
@@ -287,6 +400,14 @@ body {
 ::selection {
   background: var(--brand-gold);
   color: var(--brand-ink);
+}
+
+/* Headings default to tight tracking; warm theme softens via data-theme override above. */
+.sb-heading {
+  letter-spacing: var(--tracking-tight);
+}
+:root[data-theme="warm"] .sb-heading {
+  letter-spacing: -0.015em;
 }
 
 /* Component primitives are React components in src/components/ui (Button, Card, Input, Badge, …). */

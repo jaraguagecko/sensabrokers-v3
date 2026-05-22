@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Asesora Sensabrokers, ilustración" width="320" height="320">
+  <title>Asesora Sensabrokers</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#efe6d4"/>
+      <stop offset="100%" stop-color="#e6dac1"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a2a1a"/>
+      <stop offset="100%" stop-color="#574a3c"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8c7a6"/>
+      <stop offset="100%" stop-color="#d5a878"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b8593a"/>
+      <stop offset="100%" stop-color="#8f3f25"/>
+    </linearGradient>
+  </defs>
+  <!-- Soft circular background -->
+  <circle cx="160" cy="160" r="160" fill="url(#bg)"/>
+  <!-- Subtle decorative arc (tradicional) -->
+  <circle cx="160" cy="160" r="142" fill="none" stroke="#c9b88f" stroke-width="1.5" stroke-dasharray="2 6" opacity="0.6"/>
+
+  <!-- Shoulders / blouse -->
+  <path d="M40 320 C 60 240, 120 220, 160 220 C 200 220, 260 240, 280 320 Z" fill="url(#shirt)"/>
+  <!-- Collar detail -->
+  <path d="M130 232 L160 254 L190 232 L188 244 L160 264 L132 244 Z" fill="#fdf8ef" opacity="0.85"/>
+
+  <!-- Neck -->
+  <rect x="142" y="190" width="36" height="38" rx="14" fill="url(#skin)"/>
+
+  <!-- Head -->
+  <ellipse cx="160" cy="148" rx="62" ry="72" fill="url(#skin)"/>
+
+  <!-- Hair back -->
+  <path d="M96 134 C 92 88, 130 64, 160 64 C 198 64, 230 90, 226 138 C 226 152, 220 158, 218 148 C 214 116, 196 96, 160 96 C 128 96, 110 116, 104 144 C 102 156, 96 152, 96 134 Z" fill="url(#hair)"/>
+  <!-- Side hair strand -->
+  <path d="M98 148 C 96 168, 102 188, 110 196 L 116 180 C 110 168, 108 156, 108 148 Z" fill="url(#hair)"/>
+
+  <!-- Eyebrows -->
+  <path d="M130 138 Q 140 132 150 138" stroke="#3a2a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M170 138 Q 180 132 190 138" stroke="#3a2a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Eyes -->
+  <ellipse cx="140" cy="152" rx="3.5" ry="4" fill="#2a2118"/>
+  <ellipse cx="180" cy="152" rx="3.5" ry="4" fill="#2a2118"/>
+  <!-- Eye highlights -->
+  <circle cx="141" cy="151" r="1" fill="#fdf8ef"/>
+  <circle cx="181" cy="151" r="1" fill="#fdf8ef"/>
+
+  <!-- Nose -->
+  <path d="M160 158 L 156 174 Q 160 178 164 174" stroke="#b88a64" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Smile (warm, welcoming) -->
+  <path d="M144 188 Q 160 200 176 188" stroke="#8f3f25" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Subtle cheek blush -->
+  <circle cx="124" cy="174" r="8" fill="#d97a59" opacity="0.25"/>
+  <circle cx="196" cy="174" r="8" fill="#d97a59" opacity="0.25"/>
+
+  <!-- Small earring -->
+  <circle cx="100" cy="160" r="3" fill="#b08a3a"/>
+  <circle cx="220" cy="160" r="3" fill="#b08a3a"/>
+</svg>
