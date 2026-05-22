@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Badge, Button, Card, Container, Heading, Section } from "@/components/ui";
+import RequisitosTracked from "@/components/infonavit/RequisitosTracked";
 
 export const metadata: Metadata = {
   title: "Requisitos INFONAVIT 2026 — Lo que necesitas tener listo",
@@ -93,6 +94,7 @@ const pasos = [
 export default function RequisitosPage() {
   return (
     <>
+      <RequisitosTracked />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

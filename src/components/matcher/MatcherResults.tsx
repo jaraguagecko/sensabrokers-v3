@@ -1,6 +1,7 @@
 "use client";
 import type { ProductResult, MatcherInput } from "@/lib/matcher";
 import { Badge, Button, Card, Heading } from "@/components/ui";
+import { track, FunnelEvent } from "@/lib/analytics";
 
 interface Props {
   results: ProductResult[];
@@ -30,7 +31,7 @@ export default function MatcherResults({ results, noResults, onReset }: Props) {
           no significa que no haya opciones. Carolina puede analizarlo con productos
           especializados.
         </p>
-        <Button href="https://calendly.com/sensabrokers/consulta" external className="mb-4">
+        <Button href="https://calendly.com/sensabrokers/consulta" external onClick={() => track(FunnelEvent.CalendlyClicked, { source: "matcher" })} className="mb-4">
           Agendar con Carolina →
         </Button>
         <br />
@@ -194,7 +195,7 @@ export default function MatcherResults({ results, noResults, onReset }: Props) {
           a preparar tu expediente. Consulta gratuita, sin compromiso.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button href="https://calendly.com/sensabrokers/consulta" external>
+          <Button href="https://calendly.com/sensabrokers/consulta" external onClick={() => track(FunnelEvent.CalendlyClicked, { source: "matcher" })}>
             Agendar consulta gratis →
           </Button>
           <Button onClick={onReset} variant="ghost">
