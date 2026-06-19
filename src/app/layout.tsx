@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/ui/Navbar";
-import Footer from "@/components/ui/Footer";
-import AnalyticsProvider from "@/components/analytics/AnalyticsProvider";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const fraunces = Fraunces({
   variable: "--font-serif",
   subsets: ["latin"],
@@ -15,35 +11,30 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | Sensabrokers",
-    default: "Sensabrokers — Tu broker hipotecario en Yucatán",
-  },
+  title: "Sensabrokers — Próximamente",
   description:
-    "Sensabrokers conecta tu perfil con las mejores opciones hipotecarias, INFONAVIT y créditos bancarios en Yucatán. Comisión transparente al cierre.",
-  keywords: ["hipoteca", "crédito hipotecario", "INFONAVIT", "Yucatán", "broker hipotecario", "Mérida"],
-  authors: [{ name: "Sensabrokers" }],
+    "Estamos preparando una nueva experiencia para ayudarte a encontrar tu hipoteca ideal en Yucatán.",
   openGraph: {
     type: "website",
     locale: "es_MX",
     siteName: "Sensabrokers",
-    title: "Sensabrokers — Tu broker hipotecario en Yucatán",
+    title: "Sensabrokers — Próximamente",
     description:
-      "Encuentra la mejor hipoteca para tu perfil. Ingresos formales, informales, mixtos. Sin costo hasta el cierre.",
+      "Estamos preparando una nueva experiencia para ayudarte a encontrar tu hipoteca ideal en Yucatán.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Sensabrokers — Tu hipoteca, explicada en claro.",
+        alt: "Sensabrokers — Próximamente",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sensabrokers — Tu broker hipotecario en Yucatán",
+    title: "Sensabrokers — Próximamente",
     description:
-      "Encuentra la mejor hipoteca para tu perfil. Ingresos formales, informales, mixtos. Sin costo hasta el cierre.",
+      "Estamos preparando una nueva experiencia para ayudarte a encontrar tu hipoteca ideal en Yucatán.",
     images: ["/og-image.png"],
   },
   metadataBase: new URL("https://sensabrokers.com"),
@@ -52,27 +43,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es-MX" data-theme="warm">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Sensabrokers",
-              url: "https://sensabrokers.com",
-              description: "Broker hipotecario independiente en Yucatán, México.",
-              areaServed: { "@type": "State", name: "Yucatán", containedInPlace: { "@type": "Country", name: "México" } },
-              knowsAbout: ["Crédito hipotecario", "INFONAVIT", "Refinanciamiento", "HIR Casa"],
-            }),
-          }}
-        />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}>
-        <AnalyticsProvider />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+      <body className={`${geistSans.variable} ${fraunces.variable} antialiased`}>
+        {children}
       </body>
     </html>
   );
