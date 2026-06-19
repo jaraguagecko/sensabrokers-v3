@@ -18,7 +18,7 @@ export default function ComingSoonPage() {
         <section className="cs-hero">
           <span className="cs-pill" aria-label="Estado: próximamente">
             <span className="cs-dot" aria-hidden="true" />
-            Próximamente. Volvemos muy pronto.
+            Próximamente
           </span>
 
           <h1 className="cs-h1 font-serif">
@@ -34,8 +34,7 @@ export default function ComingSoonPage() {
         </section>
 
         <footer className="cs-foot">
-          Sensabrokers &copy; 2026 &middot; Mérida, Yucatán &middot;{" "}
-          <a href="mailto:hola@sensabrokers.com">hola@sensabrokers.com</a>
+          Sensabrokers &copy; 2026 &middot; Mérida, Yucatán
         </footer>
       </div>
     </main>
